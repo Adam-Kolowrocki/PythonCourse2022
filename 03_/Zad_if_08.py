@@ -11,3 +11,6 @@ elif second > third:
     print('Druga liczba jest największa. ')
 else:
     print('Trzecia liczba jest największa. ')
+
+list = [first, second, third]
+print(sorted(list))

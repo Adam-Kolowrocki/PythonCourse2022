@@ -7,4 +7,4 @@ fahr = 0
 while fahr <= 200:
     celc = 5 / 9 * (fahr - 32)
     print(f'{fahr} F -> {celc} C')
-    fahr +=20
+    fahr += 20
