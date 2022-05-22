@@ -5,8 +5,8 @@
 
 puppet = ('pies', 'mieszaniec', 'punio')
 (rodzaj, rasa, imię) = puppet
-print(rodzaj)
-print(rasa)
-print(imię)
+# print(rodzaj)
+# print(rasa)
+# print(imię)
 
 print(f'Mój', rodzaj, 'rasy', rasa, 'wabi się', imię)
