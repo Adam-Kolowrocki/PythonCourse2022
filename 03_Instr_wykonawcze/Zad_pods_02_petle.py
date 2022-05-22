@@ -5,6 +5,6 @@
 
 txt = input('Podaj dowolny ciąg znaków: ')
 
-for letter in txt:
-    if letter.index(1, )
+for index, letter in enumerate(txt):
+    if index % 2 == 1:
         print(letter)
