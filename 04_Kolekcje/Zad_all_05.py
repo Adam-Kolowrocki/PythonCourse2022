@@ -14,7 +14,13 @@ poet = poet.replace(',', '')
 poet_lo = poet.lower()
 
 poet_list = poet.split()
-words
+poet_list_counter = {}
 
 for word in poet_list:
-    print(poet_list)
+    if word in poet_list_counter:
+        poet_list_counter[word] += 1
+    else:
+        poet_list_counter[word] = 1
+
+for k, v in poet_list_counter.items():
+    print(f'- {k} : {v}')
