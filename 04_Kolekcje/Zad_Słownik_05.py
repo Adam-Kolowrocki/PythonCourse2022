@@ -17,5 +17,4 @@ poet_list = poet.split()
 words
 
 for word in poet_list:
-
-print(poet_list)
+    print(poet_list)
