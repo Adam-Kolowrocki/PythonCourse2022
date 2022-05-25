@@ -6,6 +6,14 @@
 #     [24, 23, 22, 21]
 
 input_list = [1, 2, 3, 4, 11, 12, 13, 14, 21, 22, 23, 24]
-length_3 = len(input_list) // 3
-list_1 = input_list.revers(0, length_3-1)
+length_1_3 = len(input_list) // 3
+list_1 = input_list[0:length_1_3]
+list_2 = input_list[length_1_3:(length_1_3 * 2)]
+list_3 = input_list[(length_1_3 * 2):(length_1_3 * 3)]
+
+list_1.reverse()
+list_2.reverse()
+list_3.reverse()
 print(list_1)
+print(list_2)
+print(list_3)
