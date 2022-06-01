@@ -5,6 +5,7 @@ def sum_func(num_list):
     return  sum(num_list)
 
 num_list = [3, 4, 9, 6]
+sum_func(num_list)
 result = sum_func(num_list)
 print(result)
 

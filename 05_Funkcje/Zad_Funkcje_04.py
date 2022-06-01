@@ -2,26 +2,25 @@
 # (wykorzystać funkcje z pkt 2)
 
 def list_func(num_list):
-    """This function returns sum of numbers in a list."""
+    """This function returns a list of numbers."""
+    num_list = num_list.split()
+    for i in range(len(num_list)):
+        num_list[i] = int(num_list[i])
     return num_list
 
 
 num_list = input('Podaj listę liczb oddzielonych spacjami ->')
-num_list = num_list.split()
-for i in range(len(num_list)):
-    num_list[i] = int(num_list[i])
-result = list_func(num_list)
+list_func(num_list)
+result_1 = list_func(num_list)
 
-
-def is_even(result):
-    """This function check is the number is even."""
+def is_even(result_1):
+    """This function check is the numbers in a list are even."""
+    even_list = []
+    for i in range(len(result_1)):
+        if result_1[i] % 2 == 0:
+            even_list.append(result_1[i])
     return even_list
 
-even_list = []
-for i in range(len(result)):
-    if i % 2 == 0:
-        even_list = result.append(i)
 
-# result_1 = is_even(result)
-
-print(f'Suma elementów listy {num_list} jest równa : {even_list}')
+is_even(result_1)
+print(f'Z elementów listy {result_1} parzyste są : {is_even(result_1)}')
