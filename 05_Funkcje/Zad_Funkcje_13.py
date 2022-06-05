@@ -8,6 +8,8 @@
 #     W przeciwnym wpadku pokaż komunikat:
 #             “Nie trafione, spróbuj jeszcze raz!”.
 #     Możesz ograniczyć liczbę prób do np. 10.
+print(f'Zagrajmy w wisielca... ha ha ha')
+input('Naciśnij Enter a ja wylosuję dla Ciebie słowo...')
 
 import random
 
@@ -16,9 +18,16 @@ words_list = ['botswana', 'zegarek', 'multipla', 'brazylia', 'stolik', 'lampka',
               'boberek', 'telewizor', 'storczyk', 'moskitiera', 'komputer', 'poduszeczka']
 
 hangman_idx = random.randint(0, len(words_list) - 1)
-print(hangman_idx)
-# hangman_word = []
-# hangman_word.append(words_list[hangman_idx])
-# hangman_word = str.words_list[hangman_idx]
-# print(hangman_word)
-# hangman_hiden = []
+hangman_word = list(words_list[hangman_idx])
+hangman_word_len = len(hangman_word)
+hiden_word = list(hangman_word_len * "_")
+round_counter = 0
+print(f'Wylosowałem dla Ciebie słowo, które ma {hangman_word_len} liter...')
+print(hiden_word)
+
+
+
+def podstawianie():
+    user_lit = input('Podaj literę do sprawdzenia -> ')
+    if user_lit in hangman_word
+        
