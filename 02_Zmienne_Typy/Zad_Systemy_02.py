@@ -4,7 +4,5 @@ print(decimal)
 
 
 
-# decimal = int(bin_num, 2)
-# print('Liczba dziesiętna z binarnej 1001111 wynosi:', str(decimal))
-# wynik to 79
-
+decimal = int(bin_num, 2)
+print('Liczba dziesiętna z binarnej 1001111 wynosi:', str(decimal))

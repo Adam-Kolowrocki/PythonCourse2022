@@ -1,9 +1,13 @@
-zmienna = """ The Zen of Python, by Tim Peters
+#     Przekopiuj zawartość import this do zmiennej.
+#     Policz liczbę wystąpień słowa better.
+#     Usuń z tekstu symbol gwiazdki
+#     Zamień jedno wystąpienie explain na understand
+#     Usuń spacje i połącz wszystkie słowa myślnikiem
+#     Podziel tekst na osobne zdania za pomocą kropki
 
-Beautiful is better than ugly.
+zmienna = """The Zen of Python, by Tim Peters Beautiful is better than ugly. 
 Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
+Simple is better than complex. Complex is better than complicated.
 Flat is better than nested.
 Sparse is better than dense.
 Readability counts.
@@ -18,14 +22,14 @@ Now is better than never.
 Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those! """
+Namespaces are one honking great idea -- let's do more of those!"""
 
-print('Słowo "better" wystepuje', zmienna.count("better"), 'razy w całym tekście.')
+print('Słowo "better" występuje', zmienna.count("better"), 'razy w całym tekście.')
 
-print(zmienna.replace("*",""))
+print(zmienna.replace('*', ''))
 
 print(zmienna.replace("explain", "understand", 1))
 
 print(zmienna.replace(" ", "-"))
 
-# print(zmienna.split("."))
+print(zmienna.replace('\n', '.'))
