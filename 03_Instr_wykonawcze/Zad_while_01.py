@@ -4,7 +4,7 @@ Program powinen wykonać się w pętli od 0 do 200 stopni Fahrenheit, co 20 stop
 Napisz rozwiązanie zarówno z użyciem pętli while jak i for."""
 
 fahr = 0
-while fahr <= 200:
+while fahr <= 300:
     celc = 5 / 9 * (fahr - 32)
     print(f'{fahr} F -> {celc} C')
-    fahr += 20
+    fahr += 10

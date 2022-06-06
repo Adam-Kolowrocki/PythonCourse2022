@@ -4,7 +4,8 @@
 # NIESKOŃCZONE
 
 txt = input('Podaj dowolny ciąg znaków: ')
-
 for index, letter in enumerate(txt):
     if index % 2 == 1:
         print(letter)
+
+print(txt[1::2])
