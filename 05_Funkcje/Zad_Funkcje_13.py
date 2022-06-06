@@ -20,14 +20,15 @@ words_list = ['botswana', 'zegarek', 'multipla', 'brazylia', 'stolik', 'lampka',
 hangman_idx = random.randint(0, len(words_list) - 1)
 hangman_word = list(words_list[hangman_idx])
 hangman_word_len = len(hangman_word)
-hiden_word = list(hangman_word_len * "_")
+hiden_word = hangman_word_len * "_ "
 round_counter = 0
 print(f'Wylosowałem dla Ciebie słowo, które ma {hangman_word_len} liter...')
 print(hiden_word)
 
 
-
+"""
 def podstawianie():
     user_lit = input('Podaj literę do sprawdzenia -> ')
-    if user_lit in hangman_word
-        
+    if user_lit in hangman_word:
+        print(f'Bardzo dobrze, litera "{user_lit}" znajduje się w wylosowanym słowie.')
+"""
