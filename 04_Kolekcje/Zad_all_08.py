@@ -1,7 +1,7 @@
-# Utwórz słownik dla 10 krajów Europy zawierajacy listy 10 najpopularniejszych imion żeńskich.
+# Utwórz słownik dla 10 krajów Europy zawierający listy 10 najpopularniejszych imion żeńskich.
 # Zapisz imiona w wersji anglojęzycznej.
 # Dodaj wszystkie listy razem. Nowa lista powinna zawierać 100 elementów.
-# Wyświetl tylko te imiona, które wystąpiły conajmniej w 3 krajach.
+# Wyświetl tylko te imiona, które wystąpiły co najmniej w 3 krajach.
 
 dictionary = {'Polska': ['Susanna', 'Julia', 'Sophia', 'Hannah', 'May', 'Lena', 'Alice', 'Olive', 'Laura', 'Maria'],
                  'Francja': ['Amelia', 'Anna', 'Bianka', 'Brigitte', 'Celina', 'Clara', 'Nikola', 'Eve', 'Francoise',
@@ -16,6 +16,12 @@ dictionary = {'Polska': ['Susanna', 'Julia', 'Sophia', 'Hannah', 'May', 'Lena', 
                                      'Sophia'],
                  }
 
-print(dictionary['Polska'])
-print(list(dictionary))
-print(len(dictionary))
+list_of_all = list(dictionary['Polska']) + list(dictionary['Francja']) + list(dictionary['Niemcy']) + \
+              list(dictionary['Czechy']) + list(dictionary['Szwecja']) + list(dictionary['Włochy']) + \
+              list(dictionary['Hiszpania']) + list(dictionary['Wielka_Brytania'])
+popular_names = []
+for name in list_of_all:
+    if list_of_all.count(name) >= 3:
+        popular_names.append(name)
+popular_names_set = set(popular_names)
+print(popular_names_set)
