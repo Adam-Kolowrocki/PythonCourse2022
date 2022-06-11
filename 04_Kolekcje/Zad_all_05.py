@@ -11,7 +11,6 @@
 poet = 'Szybko, zbudź się, szybko, wstawaj Szybko, szybko, stygnie kawa Szybko, zęby myj i ręce'
 poet = poet.replace(',', '')
 poet_lo = poet.lower()
-
 poet_list = poet_lo.split()
 poet_list_counter = {}
 
