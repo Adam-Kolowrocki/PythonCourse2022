@@ -7,4 +7,4 @@ T_test = (1, 2, 3, 4)
 S_test = {1, 2, 3, 4}
 
 # Dla Tuple nie zadziała : modyfikacja
-# Dla Set nie zadziała : nie zadziała indexowanie - są nieuporządkowane
+# Dla Set nie zadziała : zadziała indexowanie - są nieuporządkowane

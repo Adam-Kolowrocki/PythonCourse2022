@@ -21,6 +21,3 @@ for person in tablica:
         else:
             print(value, end=" ")
 print()
-
-
-# print(tablica[1],tablica\n[2])

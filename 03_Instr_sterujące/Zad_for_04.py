@@ -17,9 +17,3 @@ while i <= nat:
     i += 1
 print(nat, '=', s)
 print(f'Silnia z {nat} wynosi {s}')
-
-
-
-
-
-

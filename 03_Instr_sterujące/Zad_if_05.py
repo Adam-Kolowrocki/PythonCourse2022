@@ -6,7 +6,7 @@
 password = input('Podaj hasło, musi ono mieć długość conajmniej 8 znaków i zawierać conajmniej 1 wielką i conajmniej 1 małą literę:')
 
 if len(password) < 8:
-    print('Hasło jest za krótkie, powinno zaawierać conajmniej 8 znaków')
+    print('Hasło jest za krótkie, powinno zawierać conajmniej 8 znaków')
 
 if (password.isdigit() or password.isalpha()):
     print('Hasło musi zawierać conajmniej jedna cyfrę i conajmniej jedną literę')

@@ -8,4 +8,4 @@ print(set)
 set.remove(5)
 print(set)
 
-# remove zwróci błąd jeśli w secie nie ma obiektu podanegodo usunięcia a discard nie zwróci błędu
+# remove zwróci błąd jeśli w secie nie ma obiektu podanego do usunięcia a discard nie zwróci błędu

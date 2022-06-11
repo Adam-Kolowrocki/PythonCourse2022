@@ -1,5 +1,5 @@
 # Stwórz krotkę liczb całkowitych. Poproś użytkownika o podanie dowolnej liczby.
-# Jeśli liczba znajduje się na krotce wyswietl jej indeks.
+# Jeśli liczba znajduje się na krotce wyświetl jej indeks.
 numbers = (1, 3, 4, 20, 13, 16, 9)
 num = input("Podaj liczbę od 1 do 20 ->")
 num = int(num)
