@@ -1,5 +1,5 @@
-# Nie korzystając z funkcji wbudowanej min(), napisz funkcję znajdującą minimalną wartość
-# z 3 liczb. minimum_of(a, b, c).
+# Nie korzystając z funkcji wbudowanej min(), napisz funkcję znajdującą
+# minimalną wartość z 3 liczb. minimum_of(a, b, c).
 
 def numbers():
     print(f'Podaj 3 liczby do porównnia')
