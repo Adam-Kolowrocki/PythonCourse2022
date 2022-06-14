@@ -22,25 +22,30 @@ def love_str_num():
         else:
             letters[char] = 1
     love_number = list(letters.values())
-    return love_number
+    love_num_str =''.join(map(str,love_number))
+    return love_num_str
 
 
 def love_calc():
     love_num = love_str_num()
     while len(love_num) > 2:
-        sum.append = love_num[0] + love_num[-1]
-        del love_num[0]
-        del love_num[-1]
-        # love_num.insert(int((len(love_num) / 2) + 1), sum)
+        if len(love_num) % 2 == 0:
+            sum = love_num[0] + love_num[-1]
+            del love_num[0::]
+            del love_num[-1::]
+            love_num.insert(int((len(love_num) / 2) + 1), sum)
+        elif len(love_num) % 2 == 1:
+            sum = love_num[0] + love_num[-1]
+            del love_num[0::]
+            del love_num[-1::]
+            love_num.insert(int((len(love_num) / 2) + 2), sum)
     love_result = love_num
-
     return love_result
-
-
 
 
 def main():
     print(love_calc())
+
 
 
 if __name__ == "__main__":
