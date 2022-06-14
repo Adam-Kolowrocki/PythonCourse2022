@@ -11,6 +11,11 @@
 
 from random import choice
 
+user_wins = 0
+comp_wins = 0
+draw_count = 0
+round_counter = 0
+
 # wygrany: (przegrany)
 WINNERS = {
     'k': ('n', 'j'),
@@ -50,11 +55,7 @@ def get_user_choice_b():
 
 
 def show_result(comp, user):
-    user_wins = 0
-    comp_wins = 0
-    draw_count = 0
-    round_count = 0
-    round_count += 1
+    round_counter += 1
     if user == comp:
         draw_count += 1
         print('Remis')
@@ -64,7 +65,7 @@ def show_result(comp, user):
     else:
         comp_wins += 1
         print('Wygrywa komputer')
-    return round_count, user_wins, comp_wins, draw_count
+    return
 
 
 def menu():
@@ -127,8 +128,9 @@ def level_b():
 
 
 def statistics():
-    print(f'Rozegrałeś {round_count} rund.')
-    print(f'Wygrałeś {user_wins}, co stanowi {user_wins / round_count * 100}% rozgrywek.')
+    print(f'Rozegrałeś {round_counter} rund.')
+    print(f'Wygrałeś {user_wins}, co stanowi {user_wins / round_counter * 100}% rozgrywek.')
+
 
 
 def end():
