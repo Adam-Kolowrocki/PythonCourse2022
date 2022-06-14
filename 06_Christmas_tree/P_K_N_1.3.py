@@ -6,21 +6,13 @@
 # S - Start
 # P - Difficulty level
 # Q - Quit
-#
 # End of game:
-#
 # Would you like to continue yes/no:
 
 from random import choice
 
 # wygrany: (przegrany)
-WINNERS_A = {
-    'k': 'n',
-    'n': 'p',
-    'p': 'k'
-}
-
-WINNERS_B = {
+WINNERS = {
     'k': ('n', 'j'),
     'n': ('p', 'j'),
     'p': ('k', 's'),
@@ -28,54 +20,70 @@ WINNERS_B = {
     's': ('n', 'k')
 }
 
-CORRECT_VALUES_A = ('k', 'p', 'n')
-CORRECT_VALUES_B = ('k', 'p', 'n', 'j', 's')
+CORRECT_VALUES = ('k', 'p', 'n', 'j', 's')
 
 
-def get_comp_choice_A():
-    return choice(CORRECT_VALUES_A)
+def get_comp_choice_a():
+    return choice(CORRECT_VALUES[0:3])
 
 
-def get_comp_choice_B():
-    return choice(CORRECT_VALUES_B)
+def get_comp_choice_b():
+    return choice(CORRECT_VALUES)
 
 
-def get_user_choice_A():
+def get_user_choice_a():
     while True:
         user_choice = input('Podaj wartość k - kamień, p - papier , n - nożyce: ')
-        if user_choice in CORRECT_VALUES_A:
+        if user_choice in CORRECT_VALUES[0:3]:
             break
 
     return user_choice
 
 
-def get_user_choice_B():
+def get_user_choice_b():
     while True:
         user_choice = input('Podaj wartość k - kamień, p - papier , n - nożyce, s - Spock, j - jaszczurka: ')
-        if user_choice in CORRECT_VALUES_B:
+        if user_choice in CORRECT_VALUES:
             break
 
     return user_choice
 
 
 def show_result(comp, user):
+    user_wins = 0
+    comp_wins = 0
+    draw_count = 0
+    round_count = 0
+    round_count += 1
     if user == comp:
+        draw_count += 1
         print('Remis')
-    elif comp in WINNERS_B[user]:
+    elif comp in WINNERS[user]:
+        user_wins += 1
         print('Wygrywa użytkownika')
     else:
+        comp_wins += 1
         print('Wygrywa komputer')
+    return round_count, user_wins, comp_wins, draw_count
 
 
 def menu():
     while True:
-        menu_opt = input()
         print('S - Start')
         print('P - Poziom trudności')
         print('Q - Wyjście')
-        if menu_opt == 'S' or menu_opt == 'P' or menu_opt == 'Q':
+        menu_opt = input()
+        if menu_opt.upper() == 'Q':
+            end()
             break
-    return menu_opt.upper()
+        elif menu_opt.upper() == 'P':
+            level()
+            break
+        elif menu_opt.upper() == 'S':
+            level_a()
+        else:
+            continue
+    return
 
 
 def level():
@@ -83,16 +91,21 @@ def level():
         print('Gra ma dwa poziomy trudności:')
         print('A - Podstawowy')
         print('B - Wysoki')
+        print('P - Powrót do menu głównego')
         level_opt = input(f'Co wybierasz ->')
-        if level_opt == 'A' or level_opt == 'B':
+        if level_opt.upper() == 'A':
+            level_a()
+        elif level_opt.upper() == 'B':
+            level_b()
+        elif level_opt.upper() == 'P':
+            menu()
             break
-    return level_opt
 
 
 def level_a():
     while True:
-        comp = get_comp_choice_A()
-        user = get_user_choice_A()
+        comp = get_comp_choice_a()
+        user = get_user_choice_a()
         print(f'komputer {comp}, user {user}')
         show_result(comp, user)
 
@@ -103,8 +116,8 @@ def level_a():
 
 def level_b():
     while True:
-        comp = get_comp_choice_B()
-        user = get_user_choice_B()
+        comp = get_comp_choice_b()
+        user = get_user_choice_b()
         print(f'komputer {comp}, user {user}')
         show_result(comp, user)
 
@@ -113,23 +126,22 @@ def level_b():
             break
 
 
-def main():
-    while True:
-        print('**** GRA K-P-N ****')
-        menu()
-        if menu() == 'Q':
-            break
-        elif menu() == 'P':
-            level()
-            if level() == 'A':
-                level_a()
-            elif level() == 'B':
-                level_b()
-        else:
-            level_a()
-            break
+def statistics():
+    print(f'Rozegrałeś {round_count} rund.')
+    print(f'Wygrałeś {user_wins}, co stanowi {user_wins / round_count * 100}% rozgrywek.')
 
-    print('Dzięki za grę!')
+
+def end():
+    while True:
+        statistics()
+        print()
+        print('Dzięki za grę!')
+        break
+
+
+def main():
+    print('**** GRA K-P-N ****')
+    menu()
 
 
 main()
