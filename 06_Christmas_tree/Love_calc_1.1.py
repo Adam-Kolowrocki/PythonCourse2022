@@ -23,8 +23,25 @@ def love_str_num():
             letters[char] += 1
         else:
             letters[char] = 1
-    love_number = list(letters.values())
-    return love_number
+    love_number_list = list(letters.values())
+    love_string = [str(x) for x in love_number_list]
+    # test_string = "".join(love_number_list)
+    print(love_number_list)
+    print(love_string)
+    while i in love_string < len(love_string):
+        new_string = love_string[0] + love_string[i]
+    # new_string = l_string[0] + l_string[1] + l_string[2]
+    print(new_string)
+
+    # for i in love_number_list:
+
+        # test_str = "".join(i)
+
+    #l_string = [str(x) for x in love_number_list]
+    #for i in l_string:
+    #    string_new = "".join(i)
+    #    print(string_new)
+    return
 
 
 def love_calc():
