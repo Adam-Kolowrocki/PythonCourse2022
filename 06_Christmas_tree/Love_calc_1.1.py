@@ -24,46 +24,44 @@ def love_str_num():
         else:
             letters[char] = 1
     love_number_list = list(letters.values())
-    love_string = [str(x) for x in love_number_list]
-    # test_string = "".join(love_number_list)
-    print(love_number_list)
-    print(love_string)
-    while i in love_string < len(love_string):
-        new_string = love_string[0] + love_string[i]
-    # new_string = l_string[0] + l_string[1] + l_string[2]
-    print(new_string)
-
-    # for i in love_number_list:
-
-        # test_str = "".join(i)
-
-    #l_string = [str(x) for x in love_number_list]
-    #for i in l_string:
-    #    string_new = "".join(i)
-    #    print(string_new)
-    return
+    love_number_str = [str(x) for x in love_number_list]
+    for item in love_number_str:
+        love_number = "".join(love_number_str)
+    return love_number
 
 
 def love_calc():
-    love_num = love_str_num()
-    while len(love_num) > 2:
-        if len(love_num) % 2 == 0:
-            sum = love_num[0] + love_num[-1]
-            del love_num[0]
-            del love_num[-1]
-            love_num.insert(int(len(love_num) // 2), sum)
-        elif len(love_num) % 2 != 0:
-            sum = love_num[0] + love_num[-1]
-            del love_num[0]
-            del love_num[-1]
-            love_num.insert(((len(love_num) // 2) + 1), sum)
-    return love_num
+    love_number = love_str_num()
+    step = 0
+    while len(love_number) > 2:
+        if len(love_number) % 2 == 0:
+            print(f'step na poczatku = {step}')
+            print(love_number)
+            sum = int(love_number[0]) + int(love_number[-1])
+            middle = len(love_number) // 2
+            print(sum)
+            love_number = love_number[:(middle + step)] + str(sum) + love_number[(middle + step):]
+            step += 1
+            print(love_number)
+            love_number = love_number[1:-1]
+            print(love_number)
+            print(f'step na końcu = {step}')
+            print('Pętla dla parzystych')
+        elif len(love_number) % 2 != 0:
+            sum = int(love_number[0]) + int(love_number[-1])
+            middle = len(love_number) // 2
+            print(sum)
+            love_number = love_number[:(middle + step)] + str(sum) + love_number[(middle + step):]
+            print(love_number)
+            love_number = love_number[1:-1]
+            print(love_number)
+            print('Pętla dla nieparzystych')
+    return love_number
 
 
 def main():
     love_percent = love_calc()
-    to_print = str(love_percent[0]) + str(love_percent[1])
-    print(f'Macie {to_print}% szansy na udaną miłość...')
+    print(f'Macie {love_percent}% szansy na udaną miłość...')
 
 
 if __name__ == "__main__":
