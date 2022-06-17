@@ -35,27 +35,15 @@ def love_calc():
     step = 0
     while len(love_number) > 2:
         if len(love_number) % 2 == 0:
-            print(f'step na poczatku = {step}')
-            print(love_number)
             sum = int(love_number[0]) + int(love_number[-1])
             middle = len(love_number) // 2
-            print(sum)
-            love_number = love_number[:(middle + step)] + str(sum) + love_number[(middle + step):]
-            step += 1
-            print(love_number)
+            love_number = love_number[:middle] + str(sum) + love_number[middle:]
             love_number = love_number[1:-1]
-            print(love_number)
-            print(f'step na końcu = {step}')
-            print('Pętla dla parzystych')
         elif len(love_number) % 2 != 0:
             sum = int(love_number[0]) + int(love_number[-1])
             middle = len(love_number) // 2
-            print(sum)
-            love_number = love_number[:(middle + step)] + str(sum) + love_number[(middle + step):]
-            print(love_number)
+            love_number = love_number[:middle] + str(sum) + love_number[middle:]
             love_number = love_number[1:-1]
-            print(love_number)
-            print('Pętla dla nieparzystych')
     return love_number
 
 

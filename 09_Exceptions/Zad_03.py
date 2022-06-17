@@ -2,7 +2,8 @@
 # Pozwól użytkownikowi podać dowolny index. Podziel 1 przez liczbę pod indexem
 # wybranym przez użytkownika. Obsłuż błędy.
 def main():
-    items = [12233, 123.133, 'text', 101001110, 0b10, 5j, True, False, {}, (2, 5), [5, 8], 9233.44, 6j, 'xd', None]
+    items = [12233, 123.133, 'text', 101001110, 0b10, 5j, True, False, {}, (2, 5),
+             [5, 8], 9233.44, 6j, 'xd', None]
 
     try:
         id = int(input(f'Podaj wartość od 0 do 14 ->'))

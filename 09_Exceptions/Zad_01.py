@@ -5,7 +5,7 @@ test_list = [12233, 123.133, 'text', 101001110, 0b10, 5j, True, False]
 
 for i in test_list:
     try:
-        resoult = 10 / i
-        print(resoult)
+        result = 10 / i
+        print(result)
     except (TypeError, ZeroDivisionError):
         print(f'10/{i} Nie mogę wykonać')
