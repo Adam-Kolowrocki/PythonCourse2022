@@ -12,10 +12,15 @@ def get_user_data():
 def replace():
     user_ind, user_val = get_user_data()
     try:
-        start_tuple[user_ind] = start_tuple(user_val)
+        start_tuple[user_ind] = user_val
         print(f'Wartość {start_tuple[user_ind]} została zmieniona na {user_val}.')
     except TypeError:
-            print(f'Nie można modyfikować krotki')
+        print(f'Nie można modyfikować krotki')
+        user_decision = input(f'Chcesz sprbować jeszcze raz? t/n -> ')
+        if user_decision == 't':
+            replace()
+        else:
+            return
     return
 
 

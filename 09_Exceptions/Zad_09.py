@@ -1,7 +1,7 @@
 # Sprawdź jak wygląda kod modułu antigravity.
 # Korzystając z tego samego sposobu otwarcia dowolnego url
 # pozwól użytkownikowi podać adres www.
-# Pamiętaj sprawdzić czy url jest prawidłowy może zaczynać się:
+# Pamiętaj sprawdzić czy url jest prawidłowy, może zaczynać się:
 #     https://
 #     http://
 #     www
@@ -9,10 +9,9 @@
 # Może się kończyć za pomocą:
 #     .pl
 #     .com
-#
 # Jeśli podany adres nie jest linkiem, podnieś wyjątek URLError, który będzie informował,
 # że url jest nieprawidłowy.
-# Nie masz dość? Swietnie! Przepisz to zadanie za pomocą wyrażeń regularnych (RegEx)
+# Nie masz dość? Świetnie! Przepisz to zadanie za pomocą wyrażeń regularnych (RegEx)
 
 import webbrowser
 
@@ -22,20 +21,18 @@ class URLError(Exception):
 def is_url(url):
     url = input('Podaj adres internetowy ->')
     prefixes = ('http://', 'https://', 'www')
+    suffixes = ('.pl', '.com')
 
-
-suffixes = ('.pl', '.com')
 if not url.startswith(prefixes):
     raise URLError('Prefix incorrect')
 if not url.endswith(suffixes):
     raise URLError('Suffixe incorrect')
 
-def open_url(url_addres):
+def open_url(url):
     try:
         webbrowser.open(url)
     except URLError:
         print('URL incorrect')
-
 
 
 def main():
@@ -43,11 +40,9 @@ def main():
     open_url(url)
 
 
-
-
 if __name__ == "__main__":
     main()
-def url_check():
+"""def url_check():
     correct_beginning = ['www', 'http', 'https']
     correct_endings = ['.com', '.pl']
     try:
@@ -74,5 +69,4 @@ def main():
     url_check()
 
 
-
-main()
+main()"""
