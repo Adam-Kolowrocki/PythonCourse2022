@@ -5,18 +5,20 @@
 # Błędów nie wyświetlaj, ale rodzaj błędu zapisz do pliku.
 
 def data_collect():
-    user_numbers = input(f'Podaj proszę kilka liczb całkowitych, oddzielając je przecinkami ->')
+    user_input = input(f'Podaj proszę kilka liczb całkowitych, oddzielając je przecinkami ->')
+    user_input = user_input.split(",")
     try:
-        user_numbers.isdigit()
+        for i in range(0, len(user_input)):
+            user_input[i] = int(user_input[i])
     except ValueError:
-        print(f'Błędny typ danych')
         with open('error_list.txt', 'w') as f:
-            f.write(f'Wystąpił błąd {ValueError}')
-            print(f'Błędny typ danych')
-    user_numbers = user_numbers.split(",")
-    for i in range(0, len(user_numbers)):
-        user_numbers[i] = int(user_numbers[i])
-    return user_numbers
+            f.write(f'Wystąpił błąd "ValueError"')
+            error_act()
+    except TypeError:
+        with open('error_list.txt', 'w') as f:
+            f.write(f'Wystąpił błąd "TypeError"')
+            error_act()
+    return user_input
 
 
 def average_val():
@@ -24,8 +26,17 @@ def average_val():
     val_sum = 0
     for i in range(0, len(user_numbers)):
         val_sum += user_numbers[i]
-    average = val_sum / len(user_numbers)
+        average = val_sum / len(user_numbers)
     return average
+
+
+def error_act():
+    print(f'Podałeś niepoprawne dane')
+    user_dec = input(f'Chcesz spróbować jeszcze raz? T/N -> ')
+    if user_dec == 'T':
+        data_collect()
+    else:
+        return
 
 
 def main():
