@@ -16,7 +16,7 @@
 
 import webbrowser
 
-class URLError(Exception)
+class URLError(Exception):
     """Custom Error for URL"""
 
 def is_url(url):
@@ -25,13 +25,13 @@ def is_url(url):
 
 
 suffixes = ('.pl', '.com')
-if not url.startswith(prefixes)
-raise URLError('Prefix incorrect')
-if not url.endswith(suffixes)
+if not url.startswith(prefixes):
+    raise URLError('Prefix incorrect')
+if not url.endswith(suffixes):
     raise URLError('Suffixe incorrect')
 
 def open_url(url_addres):
-    try
+    try:
         webbrowser.open(url)
     except URLError:
         print('URL incorrect')
@@ -52,17 +52,18 @@ def url_check():
     correct_endings = ['.com', '.pl']
     try:
         url(0, 2) == 'www'
-    except TypeError
+    except TypeError:
         print('Niepoprawny adres, ')
         url(0, 3) == 'http'
-    except TypeError
+    except TypeError:
         url(0, 4) == 'https'
-    except TypeError
+    except TypeError:
         url(-1, -4) == '.com'
-    except TypeError
+    except TypeError:
         url(-1, -3) == '.pl'
-    except TypeError
-    else:
+    except TypeError:
+       else:
+
         return url
 
 # http , https , www

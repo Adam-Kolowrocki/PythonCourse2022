@@ -16,7 +16,7 @@ def get_value(message, min_max):
     while True :
         try:
             value = float(input(message))
-            minimum, maximum = min_max(minimum, maximum+1):
+            minimum, maximum = min_max(minimum, maximum+1)
 
             if not (value in range(minimum, maximum+1)):
                 raise ValueError(f'Wartość {value} jest nieprwidłowa...')
