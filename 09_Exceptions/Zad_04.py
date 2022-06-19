@@ -7,36 +7,34 @@
 def data_collect():
     user_input = input(f'Podaj proszę kilka liczb całkowitych, oddzielając je przecinkami ->')
     user_input = user_input.split(",")
+    return user_input
+
+
+def data_check():
+    user_input = data_collect()
     try:
-        for i in range(0, len(user_input)):
+        for i in range(len(user_input)):
             user_input[i] = int(user_input[i])
     except ValueError:
         with open('error_list.txt', 'w') as f:
             f.write(f'Wystąpił błąd "ValueError"')
-            error_act()
+            user_input.clear()
+            main()
     except TypeError:
         with open('error_list.txt', 'w') as f:
             f.write(f'Wystąpił błąd "TypeError"')
-            error_act()
+            user_input.clear()
+            main()
     return user_input
 
 
 def average_val():
-    user_numbers = data_collect()
+    user_numbers = data_check()
     val_sum = 0
     for i in range(0, len(user_numbers)):
         val_sum += user_numbers[i]
-        average = val_sum / len(user_numbers)
+    average = val_sum / len(user_numbers)
     return average
-
-
-def error_act():
-    print(f'Podałeś niepoprawne dane')
-    user_dec = input(f'Chcesz spróbować jeszcze raz? T/N -> ')
-    if user_dec == 'T':
-        data_collect()
-    else:
-        return
 
 
 def main():
