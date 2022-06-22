@@ -5,9 +5,19 @@
 # jego długość nie przekracza 50 znaków i składa się tylko z liter alfabetu angielskiego.
 # Wyjście:
 # W kolejnych wierszach wypisz nazwiska uczestników uporządkowane alfabetycznie.
-
-with open('Wejscie.txt', 'r') as f:
-    content = [f.read()]
-    sorted_content = sorted(content[1::])
-    for item in sorted_content:
-        print(item)
+content = [
+    10,
+    'Lipski',
+    'Nowak',
+    'Kowal',
+    'Kamysz',
+    'Adamiak',
+    'Wojtczak',
+    'Malinowski',
+    'Cybulski',
+    'Arendt',
+    'Mroczek'
+]
+sorted_content = sorted(content[1::])
+for item in sorted_content:
+    print(item)
