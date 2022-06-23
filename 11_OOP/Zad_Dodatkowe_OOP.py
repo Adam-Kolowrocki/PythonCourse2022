@@ -1,15 +1,3 @@
-# Napisz klasę Stack
-# get element - wyciągnij element ze stosul
-# show - wyświetl cały stos
-# push - dodaj element do stosu
-
-stos = {
-  'name': 'Stos',
-  'length': '10',
-  'type_1': 'string'
-}
-
-
 class Stos():
     def __init__(self, lifo):
         self.lifo = lifo
