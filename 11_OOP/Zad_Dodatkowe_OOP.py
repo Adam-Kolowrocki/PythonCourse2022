@@ -15,7 +15,7 @@ class Stos():
 
 
     def wyjęcie(self):
-        return self.lifo.pop(0)
+        return self.lifo.pop(-1)
 
 
 def main():
