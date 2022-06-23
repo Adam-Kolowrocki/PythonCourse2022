@@ -5,28 +5,18 @@
 #
 # Utwórz kilka obiektów klasy Queue z różnymi parametrami.
 
-kolejka = {
-  'name': 'Kolejka',
-  'length': '10',
-  'type_1': 'string'
-}
-
-
-class Queue():
+class Queue:
     def __init__(self, fifo):
         self.fifo = fifo
-
 
     def wyświetl(self):
         print('Queue:', self.fifo)
 
-
     def sprawdź(self):
-        return  len(self.fifo) == 0
+        return len(self.fifo) == 0
 
     def dodanie(self, item):
         self.fifo.append(item)
-
 
     def wyjęcie(self):
         return self.fifo.pop(0)
