@@ -10,7 +10,12 @@
 # Would you like to continue yes/no:
 
 from random import choice
-
+clear = '\n' * 25
+round_counter = 0
+user_wins = 0
+draw_count = 0
+user_wins_list = []
+comp_wins_list = []
 
 # wygrany: (przegrany)
 WINNERS = {
@@ -51,13 +56,23 @@ def get_user_choice_b():
 
 
 def show_result(comp, user):
+    global round_counter
+    global draw_count
+    global user_wins
+    global user_wins_list
+    global comp_wins_list
+    round_counter += 1
     if user == comp:
+        draw_count += 1
         print('Remis')
     elif comp in WINNERS[user]:
+        user_wins += 1
+        user_wins_list.append(round_counter)
         print('Wygrywa użytkownika')
     else:
+        comp_wins_list.append(round_counter)
         print('Wygrywa komputer')
-    return
+    return round_counter, draw_count, user_wins, user_wins_list, comp_wins_list
 
 
 def menu():
@@ -119,14 +134,22 @@ def level_b():
             break
 
 
-# def statistics():
-#     print(f'Rozegrałeś {round_counter} rund.')
-#     print(f'Wygrałeś {user_wins}, co stanowi {user_wins / round_counter * 100}% rozgrywek.')
+def statistics():
+    user_wins_in_row = []
+    print(clear)
+    print(f'Rozegrałeś {round_counter} rund.')
+    print(f'Wygrałeś {user_wins}, co stanowi {round(user_wins / round_counter * 100, 2)}% rozgrywek.')
+    print(f'User wins {user_wins_list}')
+    print(f'Comp wins {comp_wins_list}')
+    for i in range(0, len(user_wins_list) - 1):
+        if user_wins_list[i] == (user_wins_list[i + 1] - 1):
+            user_wins_in_row.append(user_wins_list[i])
+    print(f'user wins in row {user_wins_in_row}')
 
 
 def end():
     while True:
-        # statistics()
+        statistics()
         print()
         print('Dzięki za grę!')
         break
@@ -137,4 +160,5 @@ def main():
     menu()
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -4,6 +4,7 @@
 
 from random import choice
 
+
 def main():
     gifts = [
         ('Róże', 'Kwiaciarnia'),
@@ -18,7 +19,9 @@ def main():
         ('Tydzień razem', 'Działka')
     ]
     gifts = dict(gifts)
-    print(f'na prezent proponuję {choice(list(gifts.keys))}, a kupisz to w ')
+    proposed_gift = choice(list(gifts.items()))
+    print(f'Na prezent proponuję {proposed_gift[0]}, a kupisz to w {proposed_gift[1]}')
 
 
-main()
+if __name__ == "__main__":
+    main()
