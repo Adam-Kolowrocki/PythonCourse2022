@@ -1,24 +1,33 @@
-# Napisz program, który będzie sprawdzał,
-# czy nasz samochód kwalifikuje się do zarejestrowania jako zabytek.
-#     Program zacznie ze stworzonym słownikiem o trzech kluczach:
-#             marka (str)
-#             model (str)
-#             rocznik (int)
+# Napisz program, który na podstawie numeru karty odpowie czy ma doczynienia z Visą,
+# MasterCard, a może AmericanExpress.
 #
-#     Wypisze ten słownik na ekran (bez żadnego formatowania)
-#     Sprawdzi, czy samochód ma minimum 25 lat. Jeśli tak, wypisze komunikat:
-#     “Gratulacje! Twój samochód (tutaj_marka) może być zarejestrowany jako zabytek.”
-#     Jeśli nie spełnia powyższego warunku, wypisze komunikat:
-#         “Twój samochód (tutaj_marka) jest jeszcze zbyt młody.”
-#     Gdy program będzie poprawnie działał, pozmieniaj wartości słownika (ale nie klucze!),
-#     aby zobaczyć, czy progam również zmienia swoje zachowanie.
+# Co wiemy o numerach tych kart?
+#     All Visa card numbers start with a 4. New cards have 16 digits. Old cards have 13.
+#     MasterCard numbers either start with the numbers 51 through 55 or with the numbers
+#     2221 through 2720. All have 16 digits.
+#     American Express card numbers start with 34 or 37 and have 15 digits.
 
-car_dict = {'marka' : 'Audi',
-            'model' : 'Q7',
-            'rocznik' : 1997}
-print(car_dict)
+def menu():
+    print(f'Rozpoznawanie rodzaju karty po numerze...')
+    card_num = input(f'Podaj numer Twojej karty ->')
+    first_digit = card_num[0]
+    return card_num, first_digit
 
-if 2022 - car_dict['rocznik'] < 25:
-    print(f'Twój samochód {car_dict["marka"]} jest jeszcze zbyt młody.')
-else:
-    print(f'Gratulacje! Twój samochód {car_dict["marka"]} może być zarejestrowany jako zabytek.')
+
+card_num, first_digit = menu()
+
+
+def card_id(first_digit):
+    if first_digit == '3' and len(card_num) == 15:
+        print(f'Twoja karta to American Express')
+    elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):
+        print(f'Twoja karta to Visa')
+    elif (first_digit == '2' or first_digit == '5') and len(card_num) == 16:
+        print(f'Twoja karta to MasterCard')
+    else:
+        print(f'Twoja karta nie jest ani Visa ani MasterCard ani American Express...')
+        print(f'Albo podałeś błędny numer karty...')
+    return
+
+
+card_id(first_digit)

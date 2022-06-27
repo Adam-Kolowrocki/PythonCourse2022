@@ -1,34 +1,23 @@
-# Stwórz grę wisielec “bez wisielca”.
-#
-#     Komputer losuje wyraz z dostępnej w programie listy wyrazów.
-#     Wyświetla zamaskowany wyraz z widoczną liczbą znaków (np. ‘- - - - - - -‘)
-#     Użykownik podaje literę.
-#     Sprawdź, czy litera istnieje w wyrazie. Jeśli tak, wyświetl mu komunikat:
-#             “Trafione!” oraz napis ze znanymi literami.
-#     W przeciwnym wpadku pokaż komunikat:
-#             “Nie trafione, spróbuj jeszcze raz!”.
-#     Możesz ograniczyć liczbę prób do np. 10.
-print(f'Zagrajmy w wisielca... ha ha ha')
-input('Naciśnij Enter a ja wylosuję dla Ciebie słowo...')
+# Kolejnym warunkiem, aby dostać “żółte tablice”, jest to,
+# aby samochód posiadał co najmniej 75% oryginalnych części.
+# W naszym zadaniu zakładamy, że rzeczoznawca określił jego oryginalność w kategorii tak/nie.
+#     Poniżej stworzenia i wyświetlenia słownika w zadaniu powyżej:
+#             dopisz do słownika nowy klucz czy_oryginalny i ustaw jego wartość (typ: bool) wedle uznania.
+#             ponownie wyświetl zmieniony słownik
+#     Zmodyfikuj program tak, aby uwzględnił decyzję o możliwości zarejestrowania samochodu również
+#     od jego oryginalności. Dopisz odpowiednie komunikaty.
 
-import random
+car_dict = {'marka' : 'Audi',
+            'model' : 'Q7',
+            'rocznik' : 1997,
+            'czy-oryginalny' : False}
+print(car_dict)
 
-words_list = ['botswana', 'zegarek', 'multipla', 'brazylia', 'stolik', 'lampka', 'karabin',
-              'soczewka', 'patelnia', 'karafka', 'maskarada', 'szarada', 'skarabeusz',
-              'boberek', 'telewizor', 'storczyk', 'moskitiera', 'komputer', 'poduszeczka']
-
-hangman_idx = random.randint(0, len(words_list) - 1)
-hangman_word = list(words_list[hangman_idx])
-hangman_word_len = len(hangman_word)
-hiden_word = hangman_word_len * "_ "
-round_counter = 0
-print(f'Wylosowałem dla Ciebie słowo, które ma {hangman_word_len} liter...')
-print(hiden_word)
-
-
-"""
-def podstawianie():
-    user_lit = input('Podaj literę do sprawdzenia -> ')
-    if user_lit in hangman_word:
-        print(f'Bardzo dobrze, litera "{user_lit}" znajduje się w wylosowanym słowie.')
-"""
+if 2022 - car_dict['rocznik'] < 25 and car_dict['czy-oryginalny'] == False:
+    print(f'Twój samochód {car_dict["marka"]} jest jeszcze zbyt młody i ma za mało oryginalnych części.')
+elif 2022 - car_dict['rocznik'] < 25 and car_dict['czy-oryginalny'] == True:
+    print(f'Twój samochód {car_dict["marka"]} ma wystarczająco dużo oryginalnych części ale jest jeszcze zbyt młody.')
+elif 2022 - car_dict['rocznik'] >= 25 and car_dict['czy-oryginalny'] == False:
+    print(f'Twój samochód {car_dict["marka"]} jest już bardzo stary, ale ma za mało oryginalnych części')
+else:
+    print(f'Gratulacje! Twój samochód {car_dict["marka"]} może być zarejestrowany jako zabytek.')

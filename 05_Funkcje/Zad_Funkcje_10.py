@@ -1,33 +1,57 @@
-# Napisz program, który na podstawie numeru karty odpowie czy ma doczynienia z Visą,
-# MasterCard, a może AmericanExpress.
-#
-# Co wiemy o numerach tych kart?
-#     All Visa card numbers start with a 4. New cards have 16 digits. Old cards have 13.
-#     MasterCard numbers either start with the numbers 51 through 55 or with the numbers
-#     2221 through 2720. All have 16 digits.
-#     American Express card numbers start with 34 or 37 and have 15 digits.
-
-def menu():
-    print(f'Rozpoznawanie rodzaju karty po numerze...')
-    card_num = input(f'Podaj numer Twojej karty ->')
-    first_digit = card_num[0]
-    return card_num, first_digit
+# Napisz grę kamień-papier-nożyce tak, aby korzystać z funkcji.
+from random import choice
 
 
-card_num, first_digit = menu()
+def comp_choice():
+    comp_move = choice('prs')
+    return comp_move
 
 
-def card_id(first_digit):
-    if first_digit == '3' and len(card_num) == 15:
-        print(f'Twoja karta to American Express')
-    elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):
-        print(f'Twoja karta to Visa')
-    elif (first_digit == '2' or first_digit == '5') and len(card_num) == 16:
-        print(f'Twoja karta to MasterCard')
+def user_choice():
+    print(f'As always You have 3 options:')
+    print(f'Type "p" for paper,'
+          '"r" for rock,'
+          'or "s" for scissors.\n')
+    user_move = input(f'What is Your move ->')
+    user_move = user_move.lower()
+    if not user_move in 'prs':
+        user_choice()
     else:
-        print(f'Twoja karta nie jest ani Visa ani MasterCard ani American Express...')
-        print(f'Albo podałeś błędny numer karty...')
-    return
+        return user_move
 
 
-card_id(first_digit)
+def draw():
+    print(f'There was a draw...')
+
+
+def user_wins():
+    print(f'User wins !!!')
+
+
+def comp_wins():
+    print(f'You have lost...')
+
+
+def score_check():
+    comp_move = comp_choice()
+    user_move = user_choice()
+    if user_move == comp_move:
+        return draw()
+    elif user_move == 's' and comp_move == 'p':
+        user_wins()
+    elif user_move == 'p' and comp_move == 'r':
+        user_wins()
+    elif user_move == 'r' and comp_move == 's':
+        user_wins()
+    else:
+        comp_wins()
+
+
+def main():
+    print(f'Lets play a game - Paper/Rock/Scissors.')
+    input(f'Press Enter to start...')
+    score_check()
+
+
+if __name__ == "__main__":
+    main()
