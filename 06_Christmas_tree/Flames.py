@@ -8,6 +8,8 @@
 #  Policz pozostałe litery.
 #  Użyj wyniku, by znaleźć prawdziwy związek między dwoma osobami.
 clear = '\n' * 25
+flame = 'flame'
+flame_dict = {'f': 'Friendship', 'l': 'Love', 'a': 'Affection', 'm': 'Marriage', 'e': 'Enemies'}
 
 
 def hello():
@@ -15,8 +17,7 @@ def hello():
     print(f'This is a simple implementation of game called:'.center(100))
     print(f'******** FLAMES ********'.center(100))
     print('\n' * 10)
-    decision = input(f'Want to play?  '
-                     f'Y/N -> ')
+    decision = input(f'Want to play? Y/N -> ')
     decision = decision.lower()
     return decision
 
@@ -34,20 +35,38 @@ def names_input():
 
 def char_removing():
     name_1, name_2 = names_input()
-    print(name_1, name_2)
     flame_string = name_1 + name_2
-    print(flame_string)
+    new_string = ""
     for i in range(0, len(flame_string)):
-        if flame_string.find(flame_string[i]) > -1:
-            flame_string.lstrip(flame_string[i])
-    print(flame_string)
+        if flame_string.count(flame_string[i]) == 1:
+            new_string += flame_string[i]
+    return len(new_string)
+
+
+def flame_count():
+    x = char_removing()
+    z = len(flame)
+    while x > z:
+        x -= z
+    result = flame[x - 1]
+    return result
+
+
+def prophecy(result):
+    print(clear)
+    name_1, name_2 = names_input()
+    name_1 = name_1.capitalize()
+    name_2 = name_2.capitalize()
+    for k, v in flame_dict.items():
+        if k == result:
+            print(f'The prophecy for {name_1} and {name_2} is ->  {v}')
 
 
 def main():
     if hello() == 'n':
         end()
     elif hello() == 'y':
-        char_removing()
+        prophecy(flame_count())
     else:
         main()
 
