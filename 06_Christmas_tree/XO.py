@@ -19,6 +19,10 @@ def beginning():
     print('\n' * 5)
     print(f'Lets play   "Tic Tac Toe"'.center(150))
 
+    xo_board[1][1] = 'X'
+    print('\n'.join([''.join(['{:4}'.format(item) for item in row]).center(150)
+                     for row in xo_board]).center(150))
+
 
 def comp_choice():
     return choice(XO)
