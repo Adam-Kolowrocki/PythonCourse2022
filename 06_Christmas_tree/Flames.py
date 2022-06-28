@@ -15,41 +15,41 @@ def hello():
     print(f'This is a simple implementation of game called:'.center(100))
     print(f'******** FLAMES ********'.center(100))
     print('\n' * 10)
-    input(f'Press Enter to begin...')
-    names_input()
+    decision = input(f'Want to play?  '
+                     f'Y/N -> ')
+    decision = decision.lower()
+    return decision
+
+
+def end():
+    print(f'Game over.')
 
 
 def names_input():
     print(clear)
-    name_1 = input(f'Type a first name -> ')
-    name_2 = input(f'Type a second name -> ')
+    name_1 = str(input(f'Type first name to check flames -> '))
+    name_2 = str(input(f'Type second name to check flames -> '))
     return name_1, name_2
 
 
-
-    # def input_first():
-    #     print(f'jestem w input_first')
-    #     name_1 = input(f'Type a first name -> ')
-    #     if not name_1.isalpha():
-    #         print(f'Name has to be alphabetic...')
-    #         input_first()
-    #         return name_1
-    #
-    # def input_second():
-    #     name_2 = input(f'Type a second name -> ')
-    #     if not name_2.isalpha():
-    #         print(f'Name has to be alphabetic...')
-    #         input_second()
-    #         return name_2
-    # name_1 = input_first()
-    # name_2 = input_second()
-    # print(name_1, name_2)
-    # return name_1, name_2
-
+def char_removing():
+    name_1, name_2 = names_input()
+    print(name_1, name_2)
+    flame_string = name_1 + name_2
+    print(flame_string)
+    for i in range(0, len(flame_string)):
+        if flame_string.find(flame_string[i]) > -1:
+            flame_string.lstrip(flame_string[i])
+    print(flame_string)
 
 
 def main():
-    hello()
+    if hello() == 'n':
+        end()
+    elif hello() == 'y':
+        char_removing()
+    else:
+        main()
 
 
 if __name__ == "__main__":
