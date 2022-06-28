@@ -1,4 +1,4 @@
-# Utworz tabliczkę mnożenia jako zagnieżdżoną listę o rozmiarze 10 x 10,
+# Utwórz tabliczkę mnożenia jako zagnieżdżoną listę o rozmiarze 10 * 10,
 # wypełnioną wynikami mnożenia wiersz × kolumna.
 
 r = int(input('Do ilu mam pomnożyć?? ->'))

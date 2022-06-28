@@ -1,3 +1,9 @@
+#    1   2   3
+# A  . | . | .
+# B  . | . | .
+# C  . | . | .
+
+
 def names_input():
 
     name_1 = str(input(f'Type first name to check flames -> '))
