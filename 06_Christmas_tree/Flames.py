@@ -40,21 +40,21 @@ def char_removing():
     for i in range(0, len(flame_string)):
         if flame_string.count(flame_string[i]) == 1:
             new_string += flame_string[i]
-    return len(new_string)
+    return len(new_string), name_1, name_2
 
 
 def flame_count():
-    x = char_removing()
+    x, name_1, name_2 = char_removing()
     z = len(flame)
     while x > z:
         x -= z
     result = flame[x - 1]
-    return result
+    return result, name_1, name_2
 
 
-def prophecy(result):
+def prophecy():
+    result, name_1, name_2 = flame_count()
     print(clear)
-    name_1, name_2 = names_input()
     name_1 = name_1.capitalize()
     name_2 = name_2.capitalize()
     for k, v in flame_dict.items():
@@ -63,10 +63,11 @@ def prophecy(result):
 
 
 def main():
-    if hello() == 'n':
+    decision = hello()
+    if decision == 'y':
+        prophecy()
+    elif decision == 'n':
         end()
-    elif hello() == 'y':
-        prophecy(flame_count())
     else:
         main()
 
