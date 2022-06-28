@@ -38,28 +38,6 @@ def love_calc():
             sum = int(love_number[0]) + int(love_number[-1])
             sum = str(sum)
             new_love_number += sum
-            love_number = love_number[1:-1]
-            cycle += 1
-        elif len(love_number) % 2 != 0:\
-            sum = int(love_number[0]) + int(love_number[-1])
-            sum = str(sum)
-            new_love_number += sum
-            love_number = love_number[1:-1]
-            new_love_number += love_number
-        print(f'New love number po pierwszej pętli while {new_love_number}')
-    return new_love_number
-
-
-
-"""def love_calc():
-    love_number = love_str_num()
-    cycle = 0
-    new_love_number = ""
-    while len(love_number) > 1:
-        if len(love_number) % 2 == 0:
-            sum = int(love_number[0]) + int(love_number[-1])
-            sum = str(sum)
-            new_love_number += sum
             print(new_love_number)
             love_number = love_number[1:-1]
             cycle += 1
@@ -129,7 +107,6 @@ def love_calc():
     new_love_number += love_number
     print(f'New love number po czwartej pętli while {new_love_number}')
     return new_love_number
-"""
 
 
 def main():
