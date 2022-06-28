@@ -8,6 +8,7 @@
 # Q - Quit
 # End of game:
 # Would you like to continue yes/no:
+# Statistics added
 
 from random import choice
 clear = '\n' * 25
@@ -136,15 +137,27 @@ def level_b():
 
 def statistics():
     user_wins_in_row = []
+    comp_wins_in_row = []
     print(clear)
-    print(f'Rozegrałeś {round_counter} rund.')
-    print(f'Wygrałeś {user_wins}, co stanowi {round(user_wins / round_counter * 100, 2)}% rozgrywek.')
-    print(f'User wins {user_wins_list}')
-    print(f'Comp wins {comp_wins_list}')
-    for i in range(0, len(user_wins_list) - 1):
-        if user_wins_list[i] == (user_wins_list[i + 1] - 1):
-            user_wins_in_row.append(user_wins_list[i])
-    print(f'user wins in row {user_wins_in_row}')
+    if round_counter == 0:
+        print(f'Nie rozegrano żadnej rundy gry...')
+    else:
+        print(f'Rozegrałeś {round_counter} rund.')
+        print(f'Wygrałeś {user_wins}, co stanowi {round(user_wins / round_counter * 100, 2)}% rozgrywek.')
+        # print(f'User wins {user_wins_list}')
+        # print(f'Comp wins {comp_wins_list}')
+        for i in range(0, len(user_wins_list) - 1):
+            if user_wins_list[i] == (user_wins_list[i + 1] - 1):
+                user_wins_in_row.append(user_wins_list[i])
+                user_wins_in_row.append(user_wins_list[i + 1])
+        user_wins_in_row = set(user_wins_in_row)
+        print(f'User wins in row rounds {user_wins_in_row}')
+        for x in range(0, len(comp_wins_list) - 1):
+            if comp_wins_list[x] == (comp_wins_list[x + 1] - 1):
+                comp_wins_in_row.append(comp_wins_list[x])
+                comp_wins_in_row.append(comp_wins_list[x + 1])
+        comp_wins_in_row = set(comp_wins_in_row)
+        print(f'Computer wins in row rounds {comp_wins_in_row}')
 
 
 def end():
