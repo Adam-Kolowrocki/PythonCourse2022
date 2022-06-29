@@ -7,3 +7,7 @@ with open('shakespeare.txt', 'w') as fopen:
     nofile = None
     print(message, file = nofile)  # wyświetli na standardowe wyjście
     print(message, file = None)
+
+
+cytaty_3 = []
+print(type(cytaty_3))

@@ -1,38 +1,39 @@
 # Rozpoznawanie kart. Utwórz plik zawierający numery kart kredytowych.
-# Sprawdź dla każdej kart jej typ. Podziel kart do plików wg typów np.
+# Sprawdź dla każdej kart jej typ. Podziel karty do plików wg typów np.
 # visa.txt, mastercard.txt, americanexpress.txt.
-
 def input_file():
     with open('karty.txt') as fopen:
         cards = fopen.readlines()
-
-        print(cards)
-
-
-input_file()
-"""
-def menu():
-    print(f'Rozpoznawanie rodzaju karty po numerze...')
-    card_num = input(f'Podaj numer Twojej karty ->')
-    first_digit = card_num[0]
-    return card_num, first_digit
+    return cards
 
 
-card_num, first_digit = menu()
+def card_id(cards):
+    for i in range(0, len(cards)):
+        card_num = cards[i].strip('\n')
+        first_digit = card_num[0],
+        if first_digit == '3' and len(card_num) == 15:
+            with open('americanexpress.txt', 'w+') as f:
+                f.write(card_num)
+        elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):
+            with open('visa.txt', 'w+') as f:
+                f.write(card_num)
+        elif (first_digit == '2' or first_digit == '5') and len(card_num) == 16:
+            with open('mastercard.txt', 'w+') as f:
+                f.write(card_num)
+        else:
+            with open('others_errors.txt', 'w+') as f:
+                f.write(card_num)
+                f.write(f'Te numery nie są numerami ani kart Visa ani MasterCard ani American Express...')
+                f.write(f'Albo podałeś błędne numery karty...')
 
 
-def card_id(first_digit):
-    if first_digit == '3' and len(card_num) == 15:
-        print(f'Twoja karta to American Express')
-    elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):
-        print(f'Twoja karta to Visa')
-    elif (first_digit == '2' or first_digit == '5') and len(card_num) == 16:
-        print(f'Twoja karta to MasterCard')
-    else:
-        print(f'Twoja karta nie jest ani Visa ani MasterCard ani American Express...')
-        print(f'Albo podałeś błędny numer karty...')
-    return
+def main():
+    print(f'Rozpoznawanie rodzaju karty na podstawie numerów pobranych z pliku...')
+    card_id(cards=input_file())
 
 
-card_id(first_digit)
-"""
+if __name__ == "__main__":
+    main()
+
+
+
