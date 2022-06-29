@@ -18,6 +18,9 @@ card_num, first_digit = menu()
 
 
 def card_id(first_digit):
+    print(card_num)
+    print(len(card_num))
+    print(first_digit)
     if first_digit == '3' and len(card_num) == 15:
         print(f'Twoja karta to American Express')
     elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):

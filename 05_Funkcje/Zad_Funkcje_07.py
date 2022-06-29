@@ -4,7 +4,7 @@
 
 
 def numbers():
-    print(f'Podaj 3 liczby do porównnia')
+    print(f'Podaj 3 liczby do porównania')
     a = int(input(f'Podaj liczbę a = '))
     b = int(input(f'Podaj liczbę b = '))
     c = int(input(f'Podaj liczbę c = '))
@@ -12,6 +12,7 @@ def numbers():
 
 
 a, b, c = numbers()
+
 
 def minimum_of(a, b, c):
     if a < b > c:
