@@ -1,0 +1,4 @@
+zwierzęta = ['pies', 'kot', 'guziec', 'krowa', 'kapibara', 'surykatka', 'mangusta', 'myszoskoczek']
+owoce = ['banan', 'gruszka', 'ananas', 'mango', 'arbuz', 'pomelo']
+państwa = ['Polska', 'Maroko', 'Meksyk', 'Nikaragua', 'Nepal', 'Pakistan', 'Uzbekistan', 'Afganistan']
+miasto = ['Warszawa', 'Monachium', 'Waszyngton', 'Londyn', 'Ciechocinek', 'Radom']

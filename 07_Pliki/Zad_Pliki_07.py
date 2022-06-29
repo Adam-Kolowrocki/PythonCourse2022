@@ -1,18 +1,35 @@
-# Stwórz grę wisielec “bez wisielca”.
-#  Komputer losuje wyraz z dostępnej w programie listy wyrazów.
-#  Wyświetla zamaskowany wyraz z widoczną liczbą znaków (np. ‘- - - - - - -‘)
-#  Użytkownik podaje literę.
-#  Sprawdź, czy litera istnieje w wyrazie. Jeśli tak, wyświetl mu komunikat:
-#          “Trafione!” oraz napis ze znanymi literami.
-#  W przeciwnym wypadku pokaż komunikat:
-#          “Nie trafione, spróbuj jeszcze raz!”.
-#  Możesz ograniczyć liczbę prób do np. 10.
-
+# Wisielec.
+# Utwórz plik zawierający listę słów wg. kategorii np. zwierzęta, owoce etc.
+# Poproś użytkownika o podanie kategorii przed rozpoczęciem gry.
+# Następnie wczytaj listę haseł do programu, wylosuj jedno hasło z listy.
+# Rozgrywka powinna być maksymalnie intuicyjna.
 from random import choice
 import sys
-words_list = ['antarctic', 'clock', 'motorbike', 'motorway', 'rocket', 'furniture', 'refrigerator',
-              'table', 'firearms', 'computer']
 clear = '\n' * 25
+
+
+def menu():
+    print(f'You have four categories to choose.')
+    print(f'Type "Z" for Zwierzęta')
+    print(f'Type "O" for Owoce')
+    print(f'Type "P" for Państwa')
+    print(f'Type "M" for Miasta')
+    user_choice = input(f'Your choice is -> ')
+    return user_choice.lower()
+
+
+def list_selection(user_choice):
+    with open('wisielec_lista.txt', 'r') as f:
+        if user_choice == 'z':
+            words_list = f.readline('zwierzęta')
+        elif user_choice == 'o':
+            words_list = f.readline('owoce')
+        elif user_choice == 'p':
+            words_list = f.readline('państwa')
+        elif user_choice == 'm':
+            words_list = f.readline('miasta')
+        else:
+            menu()
 
 
 def random_word():
