@@ -8,16 +8,20 @@ def input_file():
 
 
 def card_id(cards):
+    print(cards)
     for i in range(0, len(cards)):
         card_num = cards[i].strip('\n')
         first_digit = card_num[0],
         if first_digit == '3' and len(card_num) == 15:
+            print('american')
             with open('americanexpress.txt', 'w+') as f:
                 f.write(card_num)
         elif first_digit == '4' and (len(card_num) == 13 or len(card_num) == 16):
+            print('visa')
             with open('visa.txt', 'w+') as f:
                 f.write(card_num)
         elif (first_digit == '2' or first_digit == '5') and len(card_num) == 16:
+            print('master')
             with open('mastercard.txt', 'w+') as f:
                 f.write(card_num)
         else:

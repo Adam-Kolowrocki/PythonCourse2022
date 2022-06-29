@@ -11,3 +11,9 @@ with open('shakespeare.txt', 'w') as fopen:
 
 cytaty_3 = []
 print(type(cytaty_3))
+
+
+card_num = '312548963251456'
+first_digit = '3'
+if first_digit == '3' and len(card_num) == 15:
+    print('is visa')
