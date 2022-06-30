@@ -1,4 +1,5 @@
-#obliczanie BMI podejście trzecie - trening
+# obliczanie BMI podejście trzecie - trening
+
 def bmi_calc():
     bmi = (masa / wzrost ** 2)
     print('Twoje BMI wynosi: ', round(bmi, 1))

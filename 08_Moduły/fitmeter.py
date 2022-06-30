@@ -14,11 +14,3 @@
 #
 #     Na podstawie zwróconej wartości fitmeter.py wyświetli odpowiednie porady dla pacjenta.
 
-import bmi
-
-print('Witaj, to jest prosty programik do obliczania Twojego BMI.')
-print()
-masa = float(input('Podaj proszę swoją masę w kg, używając "." jako separatora: '))
-wzrost = float(input('Podaj proszę swój wzrost w metrach, używając "." jako separatora: '))
-
-if 
