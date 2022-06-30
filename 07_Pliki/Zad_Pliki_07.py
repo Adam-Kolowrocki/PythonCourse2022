@@ -19,15 +19,24 @@ def menu():
 
 
 def list_selection(user_choice):
+    print(user_choice)
     with open('wisielec_lista.txt', 'r') as f:
         if user_choice == 'z':
-            words_list = f.readline('zwierzęta')
+            words_list = f.readlines()[0]
+            print(words_list)
+            return words_list
         elif user_choice == 'o':
-            words_list = f.readline('owoce')
+            words_list = f.readlines()[1]
+            print(words_list)
+            return words_list
         elif user_choice == 'p':
-            words_list = f.readline('państwa')
+            words_list = f.readline()[2]
+            print(words_list)
+            return words_list
         elif user_choice == 'm':
-            words_list = f.readline('miasta')
+            words_list = f.readline()[3]
+            print(words_list)
+            return words_list
         else:
             menu()
 
@@ -106,7 +115,8 @@ def main():
     print(f'****HANGMAN****')
     print('\n')
     input(f'Press Enter to start.')
-    play()
+    list_selection(user_choice=menu())
+    # play()
 
 
 if __name__ == "__main__":

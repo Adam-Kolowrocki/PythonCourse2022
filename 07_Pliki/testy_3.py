@@ -17,3 +17,7 @@ card_num = '312548963251456'
 first_digit = '3'
 if first_digit == '3' and len(card_num) == 15:
     print('is visa')
+
+with open('wisielec_lista.txt', 'r') as f:
+    words_list = f.readlines()[2]
+    print(words_list)
