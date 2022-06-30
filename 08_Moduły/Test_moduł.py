@@ -1,6 +1,6 @@
 import os
 
-filename = 'niedowaga.txt'
+filename = 'Zad_01_fitmeter/niedowaga.txt'
 if os.path.isfile(filename):
     with open(filename, 'r') as f:
         print(f.read())
