@@ -9,6 +9,7 @@ clear = '\n' * 25
 
 
 def menu():
+    # Function menu for choosing category
     print(f'You have four categories to choose.')
     print(f'Type "Z" for Zwierzęta')
     print(f'Type "O" for Owoce')
@@ -18,31 +19,30 @@ def menu():
     return user_choice.lower()
 
 
-def list_selection(user_choice):
-    print(user_choice)
+def list_selection():
+    user_choice = menu()
+    # Function returns category chosen by user from a file
     with open('wisielec_lista.txt', 'r') as f:
         if user_choice == 'z':
             words_list = f.readlines()[0]
-            print(words_list)
             return words_list
         elif user_choice == 'o':
             words_list = f.readlines()[1]
-            print(words_list)
             return words_list
         elif user_choice == 'p':
-            words_list = f.readline()[2]
-            print(words_list)
+            words_list = f.readlines()[2]
             return words_list
         elif user_choice == 'm':
-            words_list = f.readline()[3]
-            print(words_list)
+            words_list = f.readlines()[3]
             return words_list
         else:
             menu()
 
 
 def random_word():
+    words_list = list_selection()
     # Select random word from words list
+    words_list = words_list.split(',')
     secret_word = choice(words_list)
     return secret_word.lower()
 
@@ -73,8 +73,11 @@ def game_over():
 def play():
     # Main play function
     word = hidden_word()
+    print(word)
     secret_word = random_word()
+    print(secret_word)
     control_word = secret_word
+    print(control_word)
     round_counter = 10
     print(clear)
     print(f'Word wof You is {len(secret_word)} long.')
@@ -115,8 +118,8 @@ def main():
     print(f'****HANGMAN****')
     print('\n')
     input(f'Press Enter to start.')
-    list_selection(user_choice=menu())
-    # play()
+    # list_selection(user_choice=menu())
+    play()
 
 
 if __name__ == "__main__":

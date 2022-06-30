@@ -35,4 +35,13 @@ print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
 with open('inwokacja.txt', 'r', encoding='utf-8') as fopen_6:
     content = fopen_6.read()
 print(content)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+beginning = 'miasto : Warszawa, Monachium, Waszyngton, Londyn, Ciechocinek, Radom'
+print(type(beginning))
+second = beginning.split(',')
+print(second)
+print(type(second))
+third = second[1:]
+print(third)
+print(type(third))
 

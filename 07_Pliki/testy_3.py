@@ -19,5 +19,18 @@ if first_digit == '3' and len(card_num) == 15:
     print('is visa')
 
 with open('wisielec_lista.txt', 'r') as f:
-    words_list = f.readlines()[2]
-    print(words_list)
+    user_choice = input(f'podaj wybór')
+    if user_choice == 'z':
+        words_list = f.readlines()[0]
+        print(words_list)
+    elif user_choice == 'o':
+        words_list = f.readlines()[1]
+        print(words_list)
+    elif user_choice == 'p':
+        words_list = f.readlines()[2]
+        print(words_list)
+    elif user_choice == 'm':
+        words_list = f.readlines()[3]
+        print(words_list)
+    else:
+        print(f'wrong choice')
