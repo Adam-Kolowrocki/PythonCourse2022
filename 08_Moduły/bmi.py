@@ -7,21 +7,25 @@ def user_data():
     return masa, wzrost
 
 
-def bmi_calc():
-    masa, wzrost = user_data()
+def bmi_calc(masa, wzrost):
+    # masa, wzrost = user_data()
     bmi = (masa / wzrost ** 2)
     print('Twoje BMI wynosi: ', round(bmi, 1))
     return bmi
 
 
 def user_suggestion():
-    bmi = bmi_calc()
+    masa, wzrost = user_data()
+    bmi = bmi_calc(masa, wzrost)
     if bmi < 18.5:
         print('Twoje BMi jest zbyt małe, postaraj się jeść więcej chipsów!!!')
-    elif 18.5 < bmi < 24.9:
+    elif 18.5 < bmi <= 25:
         print('Twoje BMI jest idealne, żyj zdrowo.')
-    elif bmi > 24.9:
-        print('Twoje BMI jest zbyt wysokie, odstaw chipsy i piwo!!!')
+    elif 25 < bmi <= 30:
+        print('Twoje BMI jest zbyt wysokie, masz NADWAGĘ, odstaw chipsy i piwo!!!')
+    elif bmi > 30:
+        print('Twoje BMI jest zdecydowanie zat wysokie, to już OTYŁOŚĆ, czas na dietę, '
+              'ruch i operację zmniejszenia żołądka!!!')
 
 
 def main():

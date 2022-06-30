@@ -1,1 +1,1 @@
-Jest ok
+Twoje BMI jest idealne, żyj zdrowo.
