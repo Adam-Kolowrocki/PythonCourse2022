@@ -18,13 +18,15 @@ clear = '\n' * 25
 def random_word():
     # Select random word from words list
     secret_word = choice(words_list)
+    print(f'secret word : {secret_word}')
     return secret_word.lower()
 
 
 def hidden_word():
     # Hide selected word
-    word = '_' * len(random_word())
-    return word
+    secret_word = random_word()
+    word = '_' * len(secret_word)
+    return word, secret_word
 
 
 def player_wins():
@@ -46,8 +48,7 @@ def game_over():
 
 def play():
     # Main play function
-    word = hidden_word()
-    secret_word = random_word()
+    word, secret_word = hidden_word()
     control_word = secret_word
     round_counter = 10
     print(clear)

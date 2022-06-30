@@ -6,6 +6,7 @@
 from random import choice
 import sys
 clear = '\n' * 25
+secret_word = ""
 
 
 def menu():
@@ -20,8 +21,8 @@ def menu():
 
 
 def list_selection():
-    user_choice = menu()
     # Function returns category chosen by user from a file
+    user_choice = menu()
     with open('wisielec_lista.txt', 'r') as f:
         if user_choice == 'z':
             words_list = f.readlines()[0]
@@ -40,17 +41,18 @@ def list_selection():
 
 
 def random_word():
-    words_list = list_selection()
     # Select random word from words list
-    words_list = words_list.split(',')
+    words_list = list_selection()
+    words_list = words_list.split(', ')
     secret_word = choice(words_list)
     return secret_word.lower()
 
 
 def hidden_word():
     # Hide selected word
-    word = '_' * len(random_word())
-    return word
+    secret_word = random_word()
+    word = '_' * len(secret_word)
+    return word, secret_word
 
 
 def player_wins():
@@ -72,15 +74,11 @@ def game_over():
 
 def play():
     # Main play function
-    word = hidden_word()
-    print(word)
-    secret_word = random_word()
-    print(secret_word)
+    word, secret_word = hidden_word()
     control_word = secret_word
-    print(control_word)
     round_counter = 10
-    print(clear)
-    print(f'Word wof You is {len(secret_word)} long.')
+    # print(clear)
+    print(f'Word for You is {len(secret_word)} long.')
     print(f'And it is looking like that:     {word}     ')
     while round_counter > 0:
         user_letter = input(f'Type a letter to check ->')
@@ -118,7 +116,6 @@ def main():
     print(f'****HANGMAN****')
     print('\n')
     input(f'Press Enter to start.')
-    # list_selection(user_choice=menu())
     play()
 
 
