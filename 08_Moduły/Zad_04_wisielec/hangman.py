@@ -110,14 +110,10 @@ def play():
     game_over()
 
 
-def main():
+def welcome():
     # Main function in the program
     print(f'Lets play a game...')
     print(f'****HANGMAN****')
     print('\n')
     input(f'Press Enter to start.')
-    play()
 
-
-if __name__ == "__main__":
-    main()
