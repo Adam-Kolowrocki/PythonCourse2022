@@ -1,3 +1,6 @@
+# Utwórz klasę sklep. Sklep posiada różne produkty.
+# W sklepie można produkt zobaczyć, przymierzyć, kupić, zwrócić.
+
 class Product:
     def __init__(self, name, size, price, color):
         self.name = name
@@ -16,7 +19,9 @@ class Product:
 
 
 class Shop:
-    def __init__(self, products=[]):
+    def __init__(self, products=None):
+        if products is None:
+            products = []
         self.products = products
 
     def show_all(self):

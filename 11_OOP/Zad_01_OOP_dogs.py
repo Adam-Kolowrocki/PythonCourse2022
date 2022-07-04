@@ -1,13 +1,13 @@
 # Skorzystaj z wprowadzenia do OOP. Stwórz klasę Pies,
 # która posiada wspomniane atrybuty oraz metodę.
-#         atrybuty: imię, kolor sierści, rasę
-#         metody: szczekaj, machaj ogonem
+#  Atrybuty: imię, kolor sierści, rasę
+#  metody: szczekaj, machaj ogonem
 # Utwórz kilka obiektów klasy Pies z różnymi parametrami.
 class Pies:
-    def __init__(self, name, color, raca):
+    def __init__(self, name, color, breed):
         self.name = name
         self.color = color
-        self.raca = raca
+        self.breed = breed
 
     def bark(self):
         print(f'{self.name} - Wof Wof')

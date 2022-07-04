@@ -3,11 +3,12 @@
 # Dodaj atrybut wspólny dla wszystkich storczyków-królestwo roślin.
 # Utwórz kilka storczyków z różnymi parametrami.
 class Storczyki:
-    def __init__(self, color, flowering, species, kingdom):
+    Kingdom = 'Plants'
+
+    def __init__(self, color, flowering, species):
         self.color = color
         self.flowering = flowering
         self.species = species
-        self.kingdom = kingdom
 
     def flower(self):
         print(f'{self.species} has nice white flowers...')
@@ -20,10 +21,10 @@ class Storczyki:
 
 
 def main():
-    falenopsis = Storczyki("White", "May", "Falenopsis", "Rośliny")
-    dendrobium = Storczyki("Purple", "April", "Dendrobium", "Rośliny")
-    cymbidium = Storczyki("Pink", "Jun", "Cymbidium", "Rośliny")
-    katleja = Storczyki("Yellow", "September", "Katleja", "Rośliny")
+    falenopsis = Storczyki("White", "May", "Falenopsis")
+    dendrobium = Storczyki("Purple", "April", "Dendrobium")
+    cymbidium = Storczyki("Pink", "Jun", "Cymbidium")
+    katleja = Storczyki("Yellow", "September", "Katleja")
     falenopsis.flower()
     dendrobium.watering()
     cymbidium.smell()
