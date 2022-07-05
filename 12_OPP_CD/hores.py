@@ -33,8 +33,8 @@ class Cat(Animal):
         print(f'Idę do kuwety')
 
 
-def family_test(self, animal):
-    animal.poop(self)
+def family_test(animal):
+    animal.poop()
 
 
 arrow = Horse()
@@ -43,4 +43,4 @@ kity = Cat()
 
 family_test(arrow)
 family_test(cute)
-family_test(Cat)
+family_test(kity)

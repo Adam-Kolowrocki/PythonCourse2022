@@ -21,20 +21,23 @@ class Employee:
 
     def salary_inc(self, salary, seniority):
         new_salary = salary + ((salary * 0.1) * seniority)
-        return new_salary
+        return float(new_salary)
 
     def tax(self, salary):
-        tax_rate = 0
+        tax = 0
         if salary < 4000:
             tax_rate = 0.1
+            tax = salary * tax_rate
         elif 4001 < salary < 9000:
             tax_rate = 0.13
+            tax = salary * tax_rate
         elif salary > 9001:
             tax_rate = 0.15
-        return tax_rate
+            tax = salary * tax_rate
+        return tax
 
     def health_ins(self, salary):
-        if not Employee(self.student):
+        if not Employee():  # here is a problem with the parameter
             health_ins = salary * 0.03
         else:
             health_ins = 0
@@ -50,8 +53,10 @@ def main():
     lisicki = Employee('Tomasz', 'Lisicki', 'worker', 4600, 3, True)
     malinowski = Employee('Janusz', 'Malinowski', 's.worker', 7900, 6, False)
     juszczak = Employee('Marian', 'Juszczak', 'manager', 9900, 8, False)
-    print(kowalski.email())
-    print(nowak.salary_inc())
+    print(kowalski.email(), '\n', nowak.email(), '\n', lisicki.email(), '\n', malinowski.email(), '\n', juszczak.email())
+    print(f'Nowaks salary is : {nowak.salary_inc(3800, 1)}zł')
+    print(f'Juszczak pays {juszczak.tax(9900)}zł of taxes')
+    # print(malinowski.health_ins(self.student))      So this part is hashed and not work
 
 
 if __name__ == '__main__':

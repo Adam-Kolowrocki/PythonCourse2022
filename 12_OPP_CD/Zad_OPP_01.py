@@ -1,7 +1,7 @@
-# Korzystając z wikipedii utwórz klasy - Kot, Pies, Człowiek.
+# Korzystając z wikipedii, utwórz klasy: Kot, Pies, Człowiek.
 # Każda z nich powinna dziedziczyć z nadrzędnej klasy Ssaki.
 # Klasa Ssaki powinna dziedziczyć z klasy Zwierzęta.
-# Utwórz obiekty klas - kot, pies i człowiek, udowodnij, że rzeczywiście korzystają z klas rodziców.
+# Utwórz obiekty klas: kot, pies i człowiek; udowodnij, że rzeczywiście korzystają z klas rodziców.
 class Animals:
     def not_plants(self):
         return True
@@ -10,6 +10,7 @@ class Animals:
 class Mammals(Animals):
     def is_lifeborn(self):
         return True
+
 
 class Human(Mammals):
     def __init__(self):
@@ -30,4 +31,6 @@ hum = Human()
 print(hum.is_lifeborn())
 print(hum.not_plants())
 dog = Dog()
+print(dog.is_lifeborn())
 cat = Cat()
+print(cat.not_plants())
