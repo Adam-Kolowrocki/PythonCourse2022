@@ -1,18 +1,18 @@
 from fastapi import FastAPI
 
-from pydantic import BaseModell
+from pydantic import BaseModel
 
 app = FastAPI()
 app.counter = 0
 
 
-class HelloResponse(BaseModell):
+class HelloResp(BaseModel):
     msg: str
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World - now I'm on local server..."}
+def root():
+    return {"message": "Hello World - And a Happy New Year !!"}
 
 
 @app.get('/counter')
@@ -21,6 +21,6 @@ def counter():
     return f'Wejść na stronę było dokładnie: {str(app.counter)}'
 
 
-@app.get("/hello/{name}", response_model=HelloResponse)
+@app.get("/hello/{name}", response_model=HelloResp)
 def hello_name_view(name: str):
-    return HelloResponse(msg= f'Hello {name}!')
+    return HelloResp(msg=f'Hello {name}!')
