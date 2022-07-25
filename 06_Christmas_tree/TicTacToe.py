@@ -17,7 +17,6 @@ def board():
 
 def beginning():
     print(clear)
-    print('\n' * 5)
     print('\n'.join([''.join(['{:4}'.format(item) for item in row]).center(150)
                      for row in board()]).center(150))
     print('\n' * 5)
@@ -45,7 +44,7 @@ def instruction():
 def get_user_choice(player_1):
     while True:
         user_choice = input(f'{player_1}, what is your choice? ("X/O") -> ')
-        if user_choice == X or user_choice == O:
+        if user_choice == 'X' or user_choice == 'O':
             break
     return user_choice
 
