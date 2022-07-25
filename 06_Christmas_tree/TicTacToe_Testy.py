@@ -25,14 +25,13 @@ def beginning():
     print(f'The game is for two players.'.center(150))
     print('\n')
     input(f'Press Enter to begin.')
-    player_1, player_2 = users_names()
-    print(f'Player 1 name is: {player_1}, and he/she plays "X".')
-    print(f'Player 2 name is: {player_2}, and he/she plays "O".')
 
 
 def users_names():
     player_1 = input(f'Type name of player one -> ')
     player_2 = input(f'Type name of player two -> ')
+    print(f'Player 1 name is: {player_1}, and he/she plays "X".')
+    print(f'Player 2 name is: {player_2}, and he/she plays "O".')
     return player_1, player_2
 
 
@@ -40,9 +39,11 @@ def get_user_move():
     player_1, player_2 = users_names()
     print('\n'.join([''.join(['{:4}'.format(item) for item in row]).center(150)
                      for row in board()]).center(150))
-    print(f'{player_1}, type Your move:')
-    column = input(f'Type "1" or "2" or "3" ->')
-    row = input(f' Type "A" or "B" or "C" -> ')
+    print(f'To make Your move, type row and column, ex: "A1".')
+    print(f'You can use small or capital letters...')
+    player_1_move = input(f'{player_1}, type Your move:')
+    column = player_1_move[:1]
+    row = player_1_move[1]
     return column, row
 
 
